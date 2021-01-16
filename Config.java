@@ -9,7 +9,7 @@ public static void main(String[] args) {
 			System.out.println(Arrays.toString(stack[i])); //Test
 		}
 		System.out.println();
-		System.out.println(pick2(stack));
+		System.out.println(traveling(stack));
 	}
 	catch(FileNotFoundException e) {
 		System.out.println("File not found");
@@ -17,6 +17,7 @@ public static void main(String[] args) {
 	}
 }
 
+//implement this to create array
 public static int[][] config (int quantity) throws FileNotFoundException {
 	int[][] distances = new int[quantity][quantity];
 	String fileName = "input.txt"; //Input File for TravelingSalesman
@@ -47,16 +48,45 @@ public static int[][] config (int quantity) throws FileNotFoundException {
 	return distances;
 }
 
+// Think outside of the box.
+// You don't have to find all of the paths in the correct order,
+// and if you tested a path an extra few times it wouldnt matter.
+// Homework hint:
+// It is frustrating to do this without recursion as many must have figured out.
+// I will allow you to do it with a VERY high probability of finding the correct result.
+// This is possible since we are only testing 8 cities.
+
+// 0, 1, 3, 2, 4
+// 0, 1, 2, 3, 4
+// 0, 1, 4, 3, 2
+// Nested arrays?
+// ArrayList?
+// 2 -> 3 == 3 -> 2
+// Just take the smallest distance and run with 8 at start?
+
+public static double nearestNeighbor (int [][] input) {
+	double bestCost = Double.POSITIVE_INFINITY;
+	ArrayList<Integer> visitedCities = new ArrayList<Integer>();
+	for (int i = 0; i < input.length; i++) {
+		for (int j = 0; j < input.length; j++) {
+			int currentRow = 0;
+
+			if (visitedCities.contains(j)) {
+			}
+		}
+	}
+	return bestCost;
+}
 
 // testing
-public static int pick2 (int[][] config) {
+public static int traveling (int[][] input) {
 	double bestCost = Double.POSITIVE_INFINITY;
 	int counter = 1;
-	int [] distances = new int[config.length - 1];
-	int [] visitedCities = new int[config.length];
-	while (counter < config.length) {
-		int next
-		distances[counter - 1] = config[counter - 1][counter];
+	int [] distances = new int[input.length - 1];
+	int [] visitedCities = new int[input.length];
+
+	while (counter < input.length) {
+		distances[counter - 1] = input[counter - 1][counter];
 		visitedCities[counter] = counter;
 		counter++;
 	}
