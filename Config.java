@@ -9,7 +9,7 @@ public static void main(String[] args) {
 			System.out.println(Arrays.toString(stack[i])); //Test
 		}
 		System.out.println();
-		// System.out.println(traveling(stack));
+		System.out.println(traveling(stack));
 	}
 	catch(FileNotFoundException e) {
 		System.out.println("File not found");
@@ -65,19 +65,33 @@ public static int[][] config (int quantity) throws FileNotFoundException {
 // Just take the smallest distance and run with 8 at start?
 
 // testing
-public static int traveling (int[][] input) {
-	double bestCost = Double.POSITIVE_INFINITY;
-	int counter = 1;
-	int [] distances = new int[input.length - 1];
-	int [] visitedCities = new int[input.length];
-
-	while (counter < input.length) {
-		distances[counter - 1] = input[counter - 1][counter];
-		visitedCities[counter] = counter;
-		counter++;
+public static int factorial (int n) {
+	int product = 1;
+	for (int i = 1; i <= n; i++) {
+		product = product * i;
 	}
-	System.out.println(Arrays.toString(distances));
-	System.out.println(Arrays.toString(visitedCities));
-	return Arrays.stream(distances).sum();
+	return product;
+}
+
+public static int traveling (int[][] input) {
+	double bestDistance = Double.POSITIVE_INFINITY;
+	ArrayList<Integer> visitedCities = new ArrayList<Integer>();
+	for (int i = 0; i < input.length; i++) {
+		visitedCities.add(i);
+	}
+	int times = factorial(input.length);
+	for (int i = 0; i < 10 * times; i++) {
+		Collections.shuffle(visitedCities);
+		int start = 1;
+		int sum = 0;
+		while (start < visitedCities.size()) {
+			sum += input[visitedCities.get(start - 1)][visitedCities.get(start)];
+			start++;
+		}
+		if (sum < bestDistance) {
+			bestDistance = sum;
+		}
+	}
+	return (int) bestDistance;
 }
 }
