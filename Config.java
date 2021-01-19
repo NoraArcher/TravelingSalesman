@@ -9,7 +9,7 @@ public static void main(String[] args) {
 			System.out.println(Arrays.toString(stack[i])); //Test
 		}
 		System.out.println();
-		System.out.println(traveling(stack));
+		// System.out.println(traveling(stack));
 	}
 	catch(FileNotFoundException e) {
 		System.out.println("File not found");
@@ -63,20 +63,6 @@ public static int[][] config (int quantity) throws FileNotFoundException {
 // ArrayList?
 // 2 -> 3 == 3 -> 2
 // Just take the smallest distance and run with 8 at start?
-
-public static double nearestNeighbor (int [][] input) {
-	double bestCost = Double.POSITIVE_INFINITY;
-	ArrayList<Integer> visitedCities = new ArrayList<Integer>();
-	for (int i = 0; i < input.length; i++) {
-		for (int j = 0; j < input.length; j++) {
-			int currentRow = 0;
-
-			if (visitedCities.contains(j)) {
-			}
-		}
-	}
-	return bestCost;
-}
 
 // testing
 public static int traveling (int[][] input) {
