@@ -27,17 +27,18 @@ public class TravelingSalesman2{
     //   }
     // }
     ArrayList<ArrayList<String>> lines = new ArrayList<ArrayList<String>>();
+    ArrayList<String> cities = new ArrayList<String>();
     try{
       Scanner in = new Scanner(System.in);
-      lines = scan(in);
+      lines = scan(in, cities);
     }
     catch(FileNotFoundException e) {
       System.out.println("File not found");
   	  System.exit(1);
     }
+    System.out.println(cities.toString());
   }
-
-  public static ArrayList<ArrayList<String>> scan(Scanner in) throws FileNotFoundException{//add each city name and the distance to an arraylist, with the distance in position 0
+  public static ArrayList<ArrayList<String>> scan(Scanner in, ArrayList<String> cty) throws FileNotFoundException{//add each city name and the distance to an arraylist, with the distance in position 0
     ArrayList<ArrayList<String>> lines = new ArrayList<ArrayList<String>>();
     int trips = 0;
     while(in.hasNextLine()){
@@ -48,6 +49,9 @@ public class TravelingSalesman2{
         String word = line.next();
         wordCounter++;
         if(!word.equals("to") && !word.equals("=")){
+          if(!cty.contains(word) && !isNumber(word)){
+            cty.add(word);
+          }
           if(isNumber(word)){
             info.add(0, word);
           }
