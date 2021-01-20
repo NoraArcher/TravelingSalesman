@@ -28,7 +28,7 @@ public class TravelingSalesman2{
     // }
     ArrayList<ArrayList<String>> lines = new ArrayList<ArrayList<String>>();
     ArrayList<String> cities = new ArrayList<String>();
-    int bestest = 1000000;
+    int bestest = Integer.MAX_VALUE;
     try{
       Scanner in = new Scanner(System.in);
       lines = scan(in, cities);
