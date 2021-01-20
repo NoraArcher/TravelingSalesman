@@ -1,6 +1,6 @@
 # TravelingSalesman
 
-Group Members: Ryan Li, Jason Zhou, Marko Zimic, Nora Archer, and Oliver Santiago Kermani
+Group Members: Ryan Li, Jason Zhou, Marko Zimic, Nora Archer, Michael Chan, and Oliver Santiago Kermani
 
 The strategy we wanted to use to test all the routes:
 nested loops that would go through every possible route
