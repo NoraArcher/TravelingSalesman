@@ -29,7 +29,6 @@ public class TravelingSalesman2{
     ArrayList<ArrayList<String>> lines = new ArrayList<ArrayList<String>>();
     try{
       Scanner in = new Scanner(System.in);
-
       lines = scan(in);
     }
     catch(FileNotFoundException e) {
