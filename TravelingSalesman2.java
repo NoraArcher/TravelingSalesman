@@ -2,32 +2,43 @@ import java.util.*;
 import java.io.*;
 public class TravelingSalesman2{
   public static void main(String[] args){
-    // System.out.println(!isNumber(null));
-    // System.out.println(!isNumber("forty"));
-    // System.out.println(isNumber("0"));
-    // System.out.println(isNumber("14"));
-    // ArrayList<ArrayList<String>> lines = new ArrayList<ArrayList<String>>();
-    // try{
-    //   lines = scan("/Users/ryanli/Desktop/APCS/Tree/Cities.txt");
+    // public static void collapse(lol){
+    //   System.out.println(!isNumber(null));
+    //   System.out.println(!isNumber("forty"));
+    //   System.out.println(isNumber("0"));
+    //   System.out.println(isNumber("14"));
+    //   ArrayList<ArrayList<String>> lines = new ArrayList<ArrayList<String>>();
+    //   try{
+    //     lines = scan("/Users/ryanli/Desktop/APCS/Tree/Cities.txt");
+    //   }
+    //   catch(FileNotFoundException e) {
+    //     System.out.println("File not found");
+  	// 	  System.exit(1);
+    //   }
+    //   for(int i = 0; i < lines.size(); i++){
+    //     System.out.println(lines.get(i).toString());
+    //   }
+    //   try{
+    //     System.out.println(distance("Faerun", "Tristram", scan("/Users/ryanli/Desktop/APCS/Tree/Cities.txt")));
+    //   }
+    //   catch(FileNotFoundException e) {
+    //     System.out.println("File not found");
+  	// 	  System.exit(1);
+    //   }
     // }
-    // catch(FileNotFoundException e) {
-    //   System.out.println("File not found");
-		//   System.exit(1);
-    // }
-    // for(int i = 0; i < lines.size(); i++){
-    //   System.out.println(lines.get(i).toString());
-    // }
+    ArrayList<ArrayList<String>> lines = new ArrayList<ArrayList<String>>();
     try{
-      System.out.println(distance("Faerun", "Tristram", scan("/Users/ryanli/Desktop/APCS/Tree/Cities.txt")));
+      Scanner in = new Scanner(System.in);
+
+      lines = scan(in);
     }
     catch(FileNotFoundException e) {
       System.out.println("File not found");
-		  System.exit(1);
+  	  System.exit(1);
     }
   }
 
-  public static ArrayList<ArrayList<String>> scan(String fileName) throws FileNotFoundException{//add each city name and the distance to an arraylist, with the distance in position 0
-    Scanner in = new Scanner(new File(fileName));
+  public static ArrayList<ArrayList<String>> scan(Scanner in) throws FileNotFoundException{//add each city name and the distance to an arraylist, with the distance in position 0
     ArrayList<ArrayList<String>> lines = new ArrayList<ArrayList<String>>();
     int trips = 0;
     while(in.hasNextLine()){
@@ -76,8 +87,4 @@ public class TravelingSalesman2{
     }
     return 1000000;
   }//find distance between two points
-
-  public static int bestPath(){//actual thingy
-
-  }
 }
